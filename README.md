@@ -1,3 +1,9 @@
+# NOTE: THIS BRANCH IS TO CHANGE THE CURRENT WIP PROJECT FROM IONIC TO REACT
+
+## Reason
+
+Because Angular has made a lot of changes and the changes aren't as friendly to me as a developer than it is, I've decided to go into ReactNative.
+
 # jari2ku 
 
 ## Introduction 
@@ -27,4 +33,3 @@ Use ```ionic serve``` after installing and changing something to see it running 
 * Currently the ionic framework installed version is ```1.7.14```. Planning to upgrade later.
 * Add all the images to each individual pages through Angular
 * Add "Swipe Right" to save the words into a separate activity page to view a constructed sentence or a list of favorite words for daily use.
-
