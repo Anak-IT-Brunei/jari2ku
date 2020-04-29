@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Brunei Sign Language</string>
+    <string name="title_activity_main">Brunei Sign Language</string>
+    <string name="package_name">it.anak.bruneisignlanguage</string>
+    <string name="custom_url_scheme">it.anak.bruneisignlanguage</string>
+</resources>

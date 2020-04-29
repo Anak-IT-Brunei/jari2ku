@@ -28,7 +28,7 @@
           header
           class="text-grey-8"
         >
-          Essential Links
+          Nav
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -41,15 +41,18 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-    <q-footer>
+    <!-- <q-footer>
       <q-tabs>
-        <q-tab v-for="nav in navs"
-        :key="nav.link"
-        :label="nav.label" 
-        :icon="nav.icon"
+        <q-tab v-for="link in essentialLinks"
+        :key="link.title"
+        :label="link.title" 
+        :icon="link.icon"
+        v-bind="link.link"
+        clickable
+        exact
         />
       </q-tabs>
-    </q-footer>
+    </q-footer> -->
   </q-layout>
 </template>
 
@@ -68,26 +71,14 @@ export default {
       leftDrawerOpen: false,
       essentialLinks: [
         {
-          title: 'Docs',
-          caption: 'quasar.dev',
-          icon: 'school',
-          link: 'https://quasar.dev'
-        },
-        {
-          title: 'Anak IT',
-          caption: 'www.anak.it',
-          icon: 'code',
-          link: 'https://anak.it'
-        }
-      ],
-      navs: [
-        {
-          label: 'Home',
+          title: 'Home',
+          caption: 'Home',
           icon: 'home',
           link: '/'
         },
         {
-          label: 'About',
+          title: 'About',
+          caption: 'More about this app',
           icon: 'info',
           link: '/about'
         }

@@ -1,6 +1,8 @@
-# Brunei Sign Language (bsl)
+# Brunei Sign Language (BSL)
 
-To assist and learn how to use Brunei Sign Languages
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+To assist and learn how to use Brunei Sign Languages. Built with Quasar.
 
 ## Install the dependencies
 ```bash
