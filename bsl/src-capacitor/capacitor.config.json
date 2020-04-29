@@ -1,0 +1,7 @@
+{
+  "appId": "it.anak.bruneisignlanguage",
+  "appName": "Brunei Sign Language",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
