@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-java@v1.3.0
         with:
           java-version: 1.8
+      - name: Set up Gradle
+        uses: Raul6469/android-gradle-action@2.0.0
       - name: Set up NodeJS ${{ matrix.node-version }}
         uses: actions/setup-node@v1.4.2
         with:
