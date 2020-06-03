@@ -26,6 +26,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install npm dependencies
         working-directory: bsl
-        run: |
-          npm install
-          quasar build --mode capacitor --target android
+        run: npm install
+      - name: Start Quasar Android Build
+        working-directory: bsl
+        run: npx quasar build --mode capacitor --target android
