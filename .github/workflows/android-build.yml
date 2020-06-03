@@ -16,15 +16,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        name: Set up NodeJS ${{ matrix.node-version }}
+      - name: Setup JDK
+        uses: actions/setup-java@v1.3.0
+        with:
+          java-version: 1.8
+      - name: Set up NodeJS ${{ matrix.node-version }}
       - uses: actions/setup-node@v1.4.2
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install npm dependencies
         run: cd bsl && npm install
-      - name: Setup JDK
-        uses: actions/setup-java@v1.3.0
-        with:
-          java-version: 1.8
+      
       - name: Build APK
         run: cd bsl && quasar build --mode capacitor --target android
