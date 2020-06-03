@@ -10,19 +10,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
+#     strategy:
+#       matrix:
+#         node-version: [10.x, 12.x]
 
     steps:
       - uses: actions/checkout@v2
-        name: Set up NodeJS ${{ matrix.node-version }}
+        name: Set up NodeJS 10.x
       - uses: actions/setup-node@v1.4.2
         with:
-          node-version: ${{ matrix.node-version }}
-      - working-directory: bsl
-        name: Install npm dependencies
-        run: npm install
+          node-version: 10.x
+#       - working-directory: bsl
+      - name: Install npm dependencies
+        run: cd bsl && npm install
       - name: Setup JDK
         uses: actions/setup-java@1.3.0
         with:
