@@ -15,20 +15,20 @@ jobs:
         node-version: [10.x, 12.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install npm dependencies
-    - run: cd bsl && npm install
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install npm dependencies
+      - run: cd bsl && npm install
 
-    # Set up Java Dev Kit
-    - name: Set Up JDK
-      uses: actions/setup-java@v1
-      with:
-          java-version: 1.8
+      # Set up Java Dev Kit
+      - name: Set Up JDK
+        uses: actions/setup-java@v1.3.0
+        with:
+            java-version: 1.8
 
-    # Build the APK
-    - name: Build APK
-      run: quasar build --mode capacitor --target android
+      # Build the APK
+      - name: Build APK
+        run: quasar build --mode capacitor --target android
