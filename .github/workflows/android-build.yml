@@ -31,4 +31,4 @@ jobs:
 
       # Build the APK
       - name: Build APK
-        run: quasar build --mode capacitor --target android
+      - run: quasar build --mode capacitor --target android
