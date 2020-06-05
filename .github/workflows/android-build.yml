@@ -29,6 +29,7 @@ jobs:
       - run: npx quasar build -m capacitor -T android --skip-pkg
       
   build-android:
+    needs: [build-capacitor]
     runs-on: ubuntu-latest
     
     defaults:
