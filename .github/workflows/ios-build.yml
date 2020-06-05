@@ -1,0 +1,29 @@
+name: Quasar Android Build
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build-capacitor:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+        working-directory: bsl
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup NodeJS Environment ${{ matrix.node-version }}
+        uses: actions/setup-node@v1.4.2
+        with:
+            node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npx quasar build -m capacitor -T android --skip-pkg
