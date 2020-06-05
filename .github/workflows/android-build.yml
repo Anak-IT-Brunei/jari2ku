@@ -24,4 +24,9 @@ jobs:
           cd bsl
           npm install
           npx quasar build -m capacitor -T android --skip-pkg
+          cd src-capacitor/android
+          - name: "Build Android project"
+            uses: vgaidarji/android-github-actions-build@v1.0.1
+            with:
+              args: "./gradlew assembleDebug"
       
