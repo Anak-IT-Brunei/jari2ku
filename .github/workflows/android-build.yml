@@ -38,7 +38,7 @@ jobs:
         working-directory: bsl/src-capacitor/android
         
     steps:
-      - name: Android Build
-        uses: vgaidarji/android-github-actions-build@v1.0.1
+      - name: Gradle Android
+        uses: Raul6469/android-gradle-action@2.0.0
         with:
-          args: "./gradlew assembleDebug"
+          script: ./gradlew assembleDebug
