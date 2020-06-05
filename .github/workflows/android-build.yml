@@ -41,4 +41,4 @@ jobs:
       - name: Gradle Android
         uses: Raul6469/android-gradle-action@2.0.0
         with:
-          script: ./gradlew assembleDebug
+          script: ./bsl/src-capacitor/gradlew assembleDebug
