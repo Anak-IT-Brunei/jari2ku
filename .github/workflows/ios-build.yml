@@ -1,4 +1,4 @@
-name: Quasar Android Build
+name: Quasar iOS Build
 
 on:
   push:
@@ -26,4 +26,28 @@ jobs:
         with:
             node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npx quasar build -m capacitor -T android --skip-pkg
+      - run: npx quasar build -m capacitor -T iOS --skip-pkg
+  
+  build-ios:
+    needs: [build-capacitor]
+    runs-on: macos-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: bsl
+        
+    steps:
+      - name: iOS Build Action
+        uses: yukiarrr/ios-build-action@v0.5.0
+        with:
+          # Project path
+          project-path: src-capacitor/ios/App/App.xcodeproj
+          # Base64 encoded p12 file
+          p12-base64: ${{ secrets.P12_BASE64 }}
+          # Base64 encoded mobileprovision file
+          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+          code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+          team-id: ${{ secrets.TEAM_ID }}
+          workspace-path: src-capacitor/ios/App/App.xcworkspace
+          export-method: development
+          configuration: Debug
