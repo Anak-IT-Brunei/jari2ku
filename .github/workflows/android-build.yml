@@ -7,7 +7,7 @@ on:
     branches: [ master, dev ]
 
 jobs:
-  build:
+  build-capacitor:
     runs-on: ubuntu-latest
     
     defaults:
@@ -21,16 +21,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Setup NodeJS Environment
+      - name: Setup NodeJS Environment ${{ matrix.node-version }}
         uses: actions/setup-node@v1.4.2
         with:
-            node-version: '12'
+            node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: quasar build -m capacitor -T android --skip-pkg
-      - run: cd src-capacitor/android
-      - name: "Build Android project"
+      - run: npx quasar build -m capacitor -T android --skip-pkg
+      
+  build-android:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+        working-directory: bsl/src-capacitor/android
+        
+    steps:
+      - name: Android Build
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew assembleDebug"
-      
-      
