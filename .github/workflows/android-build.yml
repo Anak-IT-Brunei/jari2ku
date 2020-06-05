@@ -20,11 +20,10 @@ jobs:
         uses: actions/setup-node@v1.4.2
         with:
             node-version: '12'
-      - run: cd bsl
-      - run: npx quasar build -m capacitor -T android --skip-pkg
-      - run: cd src-capacitor/android
+      - run: cd bsl && npx quasar build -m capacitor -T android --skip-pkg
       - name: "Build Android project"
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew assembleDebug"
+      - run: cd bsl/src-capacitor/android
       
