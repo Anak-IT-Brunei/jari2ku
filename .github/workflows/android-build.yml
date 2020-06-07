@@ -40,6 +40,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Gradle Android
-        uses: Raul6469/android-gradle-action@2.0.0
+        uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          script: ./bsl/src-capacitor/android/gradlew assembleDebug
+          args: ./gradlew assembleDebug
