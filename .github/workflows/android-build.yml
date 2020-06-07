@@ -38,6 +38,7 @@ jobs:
         working-directory: bsl/src-capacitor/android
         
     steps:
+      - uses: actions/checkout@v2
       - name: Gradle Android
         uses: Raul6469/android-gradle-action@2.0.0
         with:
