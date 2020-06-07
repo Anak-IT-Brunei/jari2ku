@@ -27,19 +27,8 @@ jobs:
             node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npx quasar build -m capacitor -T android --skip-pkg
-      
-  build-android:
-    needs: [build-capacitor]
-    runs-on: ubuntu-latest
     
-    defaults:
-      run:
-        shell: bash
-        working-directory: bsl/src-capacitor/android
-        
-    steps:
-      - uses: actions/checkout@v2
       - name: Gradle Android
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          args: ./bsl/src-capacitor/android/gradlew assembleDebug
+          args: ./src-capacitor/android/gradlew assembleDebug
