@@ -38,31 +38,24 @@ jobs:
       - run: zip -r bsl-android-debug-${{github.GITHUB_REF}}.zip ./src-capacitor/android/app/build/outputs/apk/debug/
     
       - name: Create a Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
           tag_name: ${{ github.GITHUB_REF }}
-          # The name of the release. For example, `Release v1.0.1`
           release_name: Release ${{ github.GITHUB_REF }}
-          # Text describing the contents of the tag.
           body: Automated Deployment
-          # `true` to create a draft (unpublished) release, `false` to create a published one. Default: `false`
-          draft: true
-          # `true` to identify the release as a prerelease. `false` to identify the release as a full release. Default: `false`
+          draft: false
           prerelease: false
           
       - name: Upload a Release Asset
+        id: upload_release_asset
         uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          # The URL for uploading assets to the release
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          # The path to the asset you want to upload
           asset_path: ./bsl-android-debug-${{github.GITHUB_REF}}.zip
-          # The name of the asset you want to upload
           asset_name: bsl-android-debug-${{github.GITHUB_REF}}.zip
-          # The content-type of the asset you want to upload. See the supported Media Types here: https://www.iana.org/assignments/media-types/media-types.xhtml for more information
           asset_content_type: appliction/zip
