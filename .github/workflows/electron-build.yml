@@ -1,0 +1,37 @@
+name: Build Electron App CD
+
+on:
+  push:
+    branches: [master, dev]
+  pull_request:
+    branches: [master, dev]
+
+jobs:
+  release:
+    name: Prepping Electron Release and Build for ${{ matrix.os }} and ${{ matrix.node-version }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: bsl
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node-version: [10.x, 12.x]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1.4.2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npx quasar build -m electron
+
+      - name: Build/release Electron app
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
