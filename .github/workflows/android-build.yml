@@ -43,8 +43,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}-0.0.1
-          release_name: Release ${{ github.ref }}-0.0.1
+          tag_name: ${{ github.sha }}
+          release_name: Release ${{ github.sha }}
           body: Automated Deployment
           draft: false
           prerelease: false
