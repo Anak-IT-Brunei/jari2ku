@@ -27,8 +27,9 @@ jobs:
             node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npx quasar build -m capacitor -T android --skip-pkg
+      - run: cd src-capacitor/android/
     
       - name: Gradle Android
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          args: ./src-capacitor/android/gradlew assembleDebug
+          args: ./gradlew assembleDebug
