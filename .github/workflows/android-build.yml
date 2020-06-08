@@ -35,7 +35,7 @@ jobs:
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: ./bsl/src-capacitor/android/gradlew --project-dir=./bsl/src-capacitor/android assembleDebug
-      - run: zip -r bsl-android-debug.zip ./src-capacitor/android/app/build/outputs/apk/debug/
+      - run: zip -r ../bsl-android-debug.zip ./src-capacitor/android/app/build/outputs/apk/debug/
     
       - name: Create a Release
         id: create_release
