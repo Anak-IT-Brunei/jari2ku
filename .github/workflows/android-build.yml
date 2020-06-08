@@ -32,4 +32,4 @@ jobs:
       - name: Gradle Android
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          args: ./bsl/src-capacitor/android/gradlew --project-dir=project-source assembleDebug
+          args: ./bsl/src-capacitor/android/gradlew --project-dir=./bsl/src-capacitor/android assembleDebug
