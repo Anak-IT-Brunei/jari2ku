@@ -43,8 +43,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          tag_name: ${{ github.GITHUB_REF }}
-          release_name: Release ${{ github.GITHUB_REF }}
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           body: Automated Deployment
           draft: false
           prerelease: false
@@ -56,6 +56,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./bsl-android-debug-${{github.GITHUB_REF}}.zip
-          asset_name: bsl-android-debug-${{github.GITHUB_REF}}.zip
+          asset_path: ./bsl-android-debug-${{github.ref}}.zip
+          asset_name: bsl-android-debug-${{github.ref}}.zip
           asset_content_type: appliction/zip
