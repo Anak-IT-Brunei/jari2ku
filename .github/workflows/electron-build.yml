@@ -3,11 +3,13 @@ name: Build Electron App CD
 on:
   push:
     branches: [master, dev]
+    tags: 'v*'
   pull_request:
     branches: [master, dev]
+    tags: 'v*'
 
 jobs:
-  release:
+  build-electron-release:
     name: Prepping Electron Release and Build for ${{ matrix.os }} and ${{ matrix.node-version }}
     runs-on: ${{ matrix.os }}
     defaults:
@@ -30,8 +32,9 @@ jobs:
       - run: npm install
       - run: npx quasar build -m electron
 
-      - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
         with:
-          github_token: ${{ secrets.github_token }}
-          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          args: ./dist/electron/* application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
