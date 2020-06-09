@@ -3,32 +3,60 @@ name: Quasar Android Build
 on:
   push:
     branches: [ master, dev ]
+    tags: 'v*'
   pull_request:
     branches: [ master, dev ]
+    tags: 'v*'
 
 jobs:
-  build:
+  build-capacitor:
     runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+        working-directory: bsl
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
+#         node-version: [10.x, 12.x]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Setup JDK
-        uses: actions/setup-java@v1.3.0
-        with:
-          java-version: 1.8
-      - name: Set up Gradle
-        uses: Raul6469/android-gradle-action@2.0.0
-      - name: Set up NodeJS ${{ matrix.node-version }}
+      - name: Setup NodeJS Environment ${{ matrix.node-version }}
         uses: actions/setup-node@v1.4.2
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install npm dependencies
-        working-directory: bsl
-        run: npm install
-      - name: Start Quasar Android Build
-        working-directory: bsl
-        run: npx quasar build --mode capacitor --target android
+            node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npx quasar build -m capacitor -T android --skip-pkg
+      - run: chmod +x ./src-capacitor/android/gradlew
+      - name: Gradle Android
+        uses: vgaidarji/android-github-actions-build@v1.0.1
+        with:
+          args: ./bsl/src-capacitor/android/gradlew --project-dir=./bsl/src-capacitor/android assembleDebug
+      - run: zip -r ../bsl-android-debug.zip ./src-capacitor/android/app/build/outputs/apk/debug/
+    
+      - name: Create a Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          body: Automated Deployment
+          draft: false
+          prerelease: false
+          
+      - name: Upload a Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./bsl-android-debug.zip
+          asset_name: bsl-android-debug.zip
+          asset_content_type: appliction/zip
+
