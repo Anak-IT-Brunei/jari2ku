@@ -1,0 +1,22 @@
+{
+  "@quasar/testing": {
+    "harnesses": [
+      "unit-jest",
+      "security",
+      "security-antivuln"
+    ]
+  },
+  "@quasar/testing-unit-jest": {
+    "babel": "babelrc",
+    "options": [
+      "scripts"
+    ]
+  },
+  "@quasar/testing-security": {
+    "options": [
+      "zap_local"
+    ],
+    "zapbrowser": "Firefox"
+  },
+  "@quasar/testing-security-antivuln": {}
+}
