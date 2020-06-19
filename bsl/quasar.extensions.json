@@ -8,9 +8,7 @@
   },
   "@quasar/testing-unit-jest": {
     "babel": "babelrc",
-    "options": [
-      "scripts"
-    ]
+    "options": []
   },
   "@quasar/testing-security": {
     "options": [

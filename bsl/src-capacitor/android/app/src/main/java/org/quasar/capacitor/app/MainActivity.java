@@ -1,4 +1,4 @@
-package it.anak.bruneisignlanguage;
+package org.quasar.capacitor.app;
 
 import android.os.Bundle;
 

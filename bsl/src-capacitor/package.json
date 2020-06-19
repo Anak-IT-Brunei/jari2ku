@@ -1,13 +1,14 @@
 {
   "name": "bsl",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "To assist and learn how to use Brunei Sign Languages",
   "author": "Qoyyuum",
   "private": true,
   "dependencies": {
-    "@capacitor/android": "^2.0.1",
+    "@capacitor/android": "^2.2.0",
     "@capacitor/cli": "^1.0.0",
     "@capacitor/core": "^1.0.0",
-    "@capacitor/ios": "^2.0.1"
+    "@capacitor/ios": "^2.2.0",
+    "core-js": "^3.0.0"
   }
 }
