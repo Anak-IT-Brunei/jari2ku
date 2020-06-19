@@ -25,17 +25,17 @@ export default {
         [
           {
             id: 1,
-            image: "statics/cara/cakapjelas.png",
+            image: "cara/cakapjelas.png",
             tip: "Speak clearly 🗣"
           },
           {
             id: 2,
-            image: "statics/cara/elakteriak.png",
+            image: "cara/elakteriak.png",
             tip: "Don't yell 🤫"
           },
           {
             id: 3,
-            image: "statics/cara/lihatmuka.jpg",
+            image: "cara/lihatmuka.jpg",
             tip: "Look at the face 😊"
           }
         ]
