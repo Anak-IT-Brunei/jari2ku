@@ -1,12 +1,12 @@
 <template>
-  <q-page>
+  <q-page class="q-pa-lg">
     <h1>About</h1>
     <p>
       This app is inspired by the book "Jari-Jari Ku"to spread awareness and
       understanding of the Brunei Sign Language.
     </p>
     <h2>How to properly sign language?</h2>
-    <q-card v-for="step in steps" :key="step.id">
+    <q-card v-for="step in steps" :key="step.id" class="q-mb-lg">
       <q-img :src="step.image" basic>
         <div class="absolute-bottom text-subtitle2 text-center">
           {{ step.tip }}
