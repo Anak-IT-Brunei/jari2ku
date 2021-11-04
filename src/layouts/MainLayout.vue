@@ -17,7 +17,7 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-1">
       <q-list>
-        <q-item-label header class="text-grey-8"> Nav </q-item-label>
+        <q-item-label header class="text-grey-8"> Menu </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
@@ -69,6 +69,12 @@ export default {
           caption: "More about this app",
           icon: "info",
           link: "/about",
+        },
+        {
+          title: "Privacy Policy",
+          caption: "We care about your privacy",
+          icon: "dot",
+          link: "/privacy",
         },
       ],
     };
