@@ -11,25 +11,13 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
-        <q-toolbar-title>
-          Brunei Sign Language
-        </q-toolbar-title>
+        <q-toolbar-title> Brunei Sign Language </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-1">
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Nav
-        </q-item-label>
+        <q-item-label header class="text-grey-8"> Nav </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
@@ -57,33 +45,33 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink'
+import EssentialLink from "components/EssentialLink";
 
 export default {
-  name: 'MainLayout',
+  name: "MainLayout",
 
   components: {
-    EssentialLink
+    EssentialLink,
   },
 
-  data () {
+  data() {
     return {
       leftDrawerOpen: false,
       essentialLinks: [
         {
-          title: 'Home',
-          caption: 'Home',
-          icon: 'home',
-          link: '/'
+          title: "Home",
+          caption: "Home",
+          icon: "home",
+          link: "/",
         },
         {
-          title: 'About',
-          caption: 'More about this app',
-          icon: 'info',
-          link: '/about'
-        }
-      ]
-    }
-  }
-}
+          title: "About",
+          caption: "More about this app",
+          icon: "info",
+          link: "/about",
+        },
+      ],
+    };
+  },
+};
 </script>

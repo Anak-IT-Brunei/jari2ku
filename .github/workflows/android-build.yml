@@ -15,11 +15,10 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: bsl
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [10.x, 12.x, 14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -27,14 +26,14 @@ jobs:
         uses: actions/setup-node@v1.4.2
         with:
             node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npx quasar build -m capacitor -T android --skip-pkg
+      - run: yarn install && yarn global add @quasar/cli
+      - run: quasar build -m capacitor -T android --skip-pkg
       - run: chmod +x ./src-capacitor/android/gradlew
       - name: Gradle Android
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          args: ./bsl/src-capacitor/android/gradlew --project-dir=./bsl/src-capacitor/android assembleDebug
-      - run: zip -r ../bsl-android-debug.zip ./src-capacitor/android/app/build/outputs/apk/debug/
+          args: ./src-capacitor/android/gradlew --project-dir=./src-capacitor/android assembleDebug
+      - run: zip -r ../bsl-android-debug-${{ github.run_number }}.zip ./src-capacitor/android/app/build/outputs/apk/debug/
     
       - name: Create a Release
         id: create_release
@@ -55,7 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./bsl-android-debug.zip
-          asset_name: bsl-android-debug.zip
+          asset_path: ./bsl-android-debug-${{ github.run_number }}.zip
+          asset_name: bsl-android-debug-${{ github.run_number }}.zip
           asset_content_type: appliction/zip
 

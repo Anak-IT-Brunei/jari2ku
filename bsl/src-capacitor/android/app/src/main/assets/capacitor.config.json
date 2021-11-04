@@ -1,7 +1,10 @@
 {
-  "appId": "org.quasar.capacitor.app",
+  "appId": "it.anak.bsl",
   "appName": "Brunei Sign Language",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
-  "webDir": "www"
+  "webDir": "www",
+  "server": {
+    "url": "http://169.254.246.157:9090"
+  }
 }
