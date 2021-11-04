@@ -1,16 +1,7 @@
-<<<<<<< HEAD
 {
-  "appId": "it.anak.bruneisignlanguage",
-  "appName": "Brunei Sign Language",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-=======
-{
-  "appId": "org.quasar.capacitor.app",
+  "appId": "it.anak.bsl",
   "appName": "Brunei Sign Language",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "webDir": "www"
->>>>>>> cb31dfd7c9adc8445d5a6a35cecce19bb4f4eafb
 }

@@ -7,13 +7,13 @@ const routes = [
       { path: '', component: () => import('pages/Index.vue') },
       { path: 'about', component: () => import('pages/About.vue') }
     ]
-  }
+  },
+  
+  // Always leave this as last one
+  // but you can also remove it
+  {
+    path: '/:catchAll(.*)*',
+    component: () => import('pages/Error404.vue')
+  } 
 ]
-
-// Always leave this as last one
-routes.push({
-  path: '*',
-  component: () => import('pages/Error404.vue')
-})
-
-export default routes
+  export default routes

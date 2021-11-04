@@ -1,17 +1,7 @@
-<<<<<<< HEAD
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">Brunei Sign Language</string>
     <string name="title_activity_main">Brunei Sign Language</string>
-    <string name="package_name">it.anak.bruneisignlanguage</string>
-    <string name="custom_url_scheme">it.anak.bruneisignlanguage</string>
+    <string name="package_name">it.anak.bsl</string>
+    <string name="custom_url_scheme">it.anak.bsl</string>
 </resources>
-=======
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Brunei Sign Language</string>
-    <string name="title_activity_main">Brunei Sign Language</string>
-    <string name="package_name">org.quasar.capacitor.app</string>
-    <string name="custom_url_scheme">org.quasar.capacitor.app</string>
-</resources>
->>>>>>> cb31dfd7c9adc8445d5a6a35cecce19bb4f4eafb

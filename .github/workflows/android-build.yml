@@ -13,7 +13,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: bsl
 
     strategy:
       matrix:
@@ -31,7 +30,7 @@ jobs:
       - name: Gradle Android
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          args: ./bsl/src-capacitor/android/gradlew --project-dir=./bsl/src-capacitor/android assembleDebug
+          args: ./src-capacitor/android/gradlew --project-dir=./src-capacitor/android assembleDebug
       - run: zip -r ../bsl-android-debug-${{ github.run_number }}.zip ./src-capacitor/android/app/build/outputs/apk/debug/
     
       - name: Create a Release

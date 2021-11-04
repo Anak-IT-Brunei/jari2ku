@@ -18,24 +18,26 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.0.0",
-    "quasar": "^1.0.0"
+    "quasar": "2",
+    "vuex": "4"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0",
+    "@babel/eslint-parser": "^7.0.0",
+    "@quasar/app": "3",
     "@quasar/quasar-app-extension-testing": "^1.0.0",
     "@quasar/quasar-app-extension-testing-security": "^1.0.0-alpha.8",
     "@quasar/quasar-app-extension-testing-security-antivuln": "^1.0.0-alpha.2",
     "@quasar/quasar-app-extension-testing-unit-jest": "^1.1.0-beta.2",
-    "babel-eslint": "^10.0.1",
+    "@types/node": "^16.11.6",
     "devtron": "^1.4.0",
     "electron": "^8.2.4",
     "electron-debug": "^3.0.1",
     "electron-devtools-installer": "^2.2.4",
     "electron-packager": "^14.2.1",
-    "eslint": "^6.8.0",
+    "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-loader": "^3.0.3",
-    "eslint-plugin-vue": "^6.1.2",
+    "eslint-plugin-vue": "^7.0.0",
     "workbox-webpack-plugin": "^5.0.0"
   },
   "engines": {
