@@ -41,9 +41,9 @@
     "workbox-webpack-plugin": "^5.0.0"
   },
   "engines": {
-    "node": ">= 12.22.1",
+    "node": ">= 10.24.1",
     "npm": ">= 6.14.12",
-    "yarn": ">= 1.21.1"
+    "yarn": ">= 1.17.1"
   },
   "browserslist": [
     "last 10 Chrome versions",
