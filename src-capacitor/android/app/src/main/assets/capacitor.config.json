@@ -3,8 +3,5 @@
   "appName": "Brunei Sign Language",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
-  "webDir": "www",
-  "server": {
-    "url": "http://169.254.246.157:9090"
-  }
+  "webDir": "www"
 }
