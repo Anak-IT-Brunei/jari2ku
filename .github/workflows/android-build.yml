@@ -46,13 +46,9 @@ jobs:
           draft: false
           prerelease: false
           
-      - name: Upload a Release Asset
-        id: upload_release_asset
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release Asset
+        uses: csexton/release-asset-action@v3
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./android-debug.zip
-          asset_name: android-debug.zip
-          asset_content_type: appliction/zip
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          
