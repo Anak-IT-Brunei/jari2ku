@@ -24,8 +24,8 @@ jobs:
         uses: actions/setup-node@v4.0.3
         with:
             node-version: ${{ matrix.node-version }}
-      - run: npx install
-      - run: npx quasar build -m capacitor -T android --skip-pkg
+      - run: yarn install && yarn global add @quasar/cli
+      - run: quasar build -m capacitor -T android --skip-pkg
       - run: chmod +x ./src-capacitor/android/gradlew
       
       - name: Gradle Android
