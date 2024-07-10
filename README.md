@@ -1,8 +1,8 @@
 # Brunei Sign Language (BSL) :raised_hands:
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Netlify Status](https://api.netlify.com/api/v1/badges/39a45b9c-64d6-45db-a023-70898ddcd25c/deploy-status)](https://app.netlify.com/sites/bruneisignlanguange/deploys) ![Quasar Android Build](https://github.com/Anak-IT-Brunei/jari2ku/workflows/Quasar%20Android%20Build/badge.svg?branch=master)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Netlify Status](https://api.netlify.com/api/v1/badges/39a45b9c-64d6-45db-a023-70898ddcd25c/deploy-status)](https://app.netlify.com/sites/bruneisignlanguange/deploys) [![Quasar Android Build and Release](https://github.com/Anak-IT-Brunei/jari2ku/actions/workflows/android-build.yml/badge.svg)](https://github.com/Anak-IT-Brunei/jari2ku/actions/workflows/android-build.yml)
 
-To assist and learn how to use Brunei Sign Languages. Built with Quasar v2. 
+To assist and learn how to use Brunei Sign Languages. Built with [Quasar v2](https://quasar.dev). 
 
 ## Demo
 
