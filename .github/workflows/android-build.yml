@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-         node-version: [10.x, 12.x, 14.x]
+         node-version: [20.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -27,6 +27,7 @@ jobs:
       - run: yarn install && yarn global add @quasar/cli
       - run: quasar build -m capacitor -T android --skip-pkg
       - run: chmod +x ./src-capacitor/android/gradlew
+      
       - name: Gradle Android
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
